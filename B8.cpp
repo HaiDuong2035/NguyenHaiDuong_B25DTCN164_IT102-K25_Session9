@@ -1,18 +1,26 @@
 #include <stdio.h>
 #include <math.h>
 int main(){
-	int n, sum;
-	printf("Nhap so cac phan tu: ");
-	scanf("%d",&n);
-	int arr[n];
-	for (int i=0; i<n; i++){
-		printf("Nhap gia tri thu %d: ",i);
+	int num, sum;
+	printf("Nhap so phan tu:");
+	scanf("%d",&num);
+	int arr[num];
+	for (int i=0; i<num; i++){
+		printf("arr[%d] = ",i);
 		scanf("%d",&arr[i]);
 	}
-	for (int i=0; i<n; i++){
-		sum=sum+arr[i];
+	for (int i=0; i<num; i++){
+		int check=1;
+		for (int j=2; j<=sqrt(arr[i]); j++){
+			if (arr[i]%j==0){
+				check=0;
+				break;
+			}
+		}
+		if (check==1 and arr[i]>1){
+			sum=sum+arr[i];
+		}
 	}
-	printf("Tong: %d",sum);
+	printf("Tong so nguyen to: %d",sum);
     return 0;
 }
-
